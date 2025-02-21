@@ -6,7 +6,8 @@ import ChatList from "./chatList";
 import Conversation from "./conversation";
 import { NewChatModal } from "./newChatModal";
 import DeleteChatButton from "./deleteChat";
-import { PlusCircleIcon } from "@heroicons/react/20/solid";
+import { PlusCircleIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
+import { SendCommand } from "../ui/send-command";
 
 export default function ChatPage() {
    const { selectedProject } = useProject();
@@ -67,8 +68,13 @@ export default function ChatPage() {
             <h1 className="text-2xl font-bold text-white">Chat</h1>
             <ChatList chats={chats} onChatSelect={setSelectedChat} currentChat={selectedChat} />
 
-            {selectedProject && (
-               <DeleteChatButton chat={selectedChat!} projectId={selectedProject.id} isSubmitting={inSubmit} />
+            {selectedChat && (
+               <div className="flex gap-2 items-center">
+               <SendCommand instruction="process_chat" data={selectedChat} >
+                  <PlayCircleIcon className="h-6 w-6  md:h-8 md:w-8  text-indigo-500 hover:text-indigo-400" />
+               </SendCommand>
+               <DeleteChatButton chat={selectedChat!} projectId={selectedProject!.id} isSubmitting={inSubmit} />
+               </div>
             )}
             <button className="" onClick={() => setIsNewChat(true)}>
                <PlusCircleIcon className="h-6 w-6  md:h-8 md:w-8  text-teal-500 hover:text-teal-400" />
