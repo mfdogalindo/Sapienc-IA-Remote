@@ -4,6 +4,7 @@ import {
    ClipboardDocumentIcon,
    RectangleGroupIcon,
    ServerStackIcon,
+   ChatBubbleBottomCenterTextIcon
 } from "@heroicons/react/24/solid";
 import { ToolbarButton } from "./ui/ToolbarButton";
 import { useEffect, useState } from "react";
@@ -73,6 +74,10 @@ export default function Toolbar() {
 
                      <ToolbarButton navigatePath="/fileManager" label="Files">
                         <ServerStackIcon className="text-emerald-100" />
+                     </ToolbarButton>
+
+                     <ToolbarButton navigatePath="/chat" label="Chat">
+                        <ChatBubbleBottomCenterTextIcon className="text-emerald-100" />
                      </ToolbarButton>
                   </>
                )}

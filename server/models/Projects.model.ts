@@ -1,3 +1,5 @@
+import { Chat } from "./Chats.model";
+
 export interface FileMetadata {
   id: string;
   name: string;
@@ -12,24 +14,12 @@ export interface FileWithMetadata extends FileMetadata {
   data: string;
 }
 
-export interface Message {
-  id: string;
-  text: string;
-  sender: string;
-  createdAt: number;
-}
-
-export interface Chat {
-  id: string;
-  messages: Message[];
-  createdAt: number;
-}
-
 export interface Project {
   id: string;
   name: string;
   description: string;
   objective: string;
+  tools?: string;
   chats: Chat[];
   files: FileMetadata[];
   createdAt: number;

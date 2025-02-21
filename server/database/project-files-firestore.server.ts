@@ -242,8 +242,6 @@ export async function deleteProjectFile(projectId: string, fileId: string): Prom
   // Delete the file from firestore
   await deleteDoc(doc(firestore, `projects/${projectId}/files/${fileId}`));
 
-  console.log('File deleted from firestore');
-
   // Remove file metadata from the database
   const projectRef = dbRef(database, `projects/${projectId}`);
   const projectSnapshot = await get(projectRef);

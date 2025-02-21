@@ -106,3 +106,18 @@ body {
 .animate-shimmer {
   animation: shimmer 1.5s linear infinite;
 }
+
+select,
+select option {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
+select option:hover,
+select option:focus,
+select option:active,
+select option:checked {
+  background-color: rgb(17 94 89) !important; /* teal-800 */
+  border-radius: 0 !important;
+}
